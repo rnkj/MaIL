@@ -1,0 +1,12 @@
+python run_benchmark.py  --config-name=benchmark_libero_new \
+            --multirun agents=oc_ddpm_mamba_cross \
+            agent_name=ddpm_mamba_cross \
+            task_suite=libero_10 \
+            wandb.project=new_sim_test_h1 \
+            group=ddpm_mamba_cross \
+            n_layer_decoder=6 \
+            d_conv=2 \
+            obs_seq=1 \
+            train_action_seq=10 \
+            window_size=10 \
+            seed=0,1,2,3,4

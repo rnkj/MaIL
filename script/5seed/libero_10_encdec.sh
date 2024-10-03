@@ -1,0 +1,11 @@
+python run_benchmark.py  --config-name=benchmark_libero_new \
+            --multirun agents=oc_ddpm_agent \
+            agent_name=ddpm_encdec \
+            task_suite=libero_10 \
+            wandb.project=new_sim_test \
+            group=ddpm_encdec \
+            train_batch_size=256 \
+            decoder_n_layer=6 \
+            train_action_seq=10 \
+            window_size=14 \
+            seed=0,1,2,3,4

@@ -1,0 +1,74 @@
+_target_: agents.bc_object.BC_Agent
+_recursive_: false
+
+model:
+  _target_: agents.bc_object.BC_Policy_object_centric
+  _recursive_: false
+
+  visual_input: True
+  device: ${device}
+  vocabulary: ${custom_vocabulary}
+  object_centric: False
+
+
+  model:
+    _target_: agents.module.models.mlp.ResidualMLPNetwork
+    input_dim: ${obs_dim}
+    hidden_dim: ${hidden_dim}
+    num_hidden_layers: ${num_hidden_layers}
+    output_dim: ${action_dim}
+    dropout: 0
+    activation: 'Mish'
+    use_spectral_norm: false
+    use_norm: False
+    norm_style: 'BatchNorm'
+    device: ${device}
+
+  obs_encoder:
+    _target_: agents.module.vision.multi_image_obs_encoder.MultiImageObsEncoder
+    shape_meta: &shape_meta
+      # acceptable types: rgb, low_dim
+      obs:
+        agentview_rgb:
+          shape: [3, 128, 128]
+          type: rgb
+        eye_in_hand_rgb:
+          shape: [3, 128, 128]
+          type: rgb
+
+
+    rgb_model:
+      agentview_rgb:
+        _target_: agents.module.vision.get_model.get_resnet
+        input_shape: [3, 128, 128]
+        output_size: 64
+      eye_in_hand_rgb:
+        _target_: agents.module.vision.get_model.get_resnet
+        input_shape: [3, 128, 128]
+        output_size: 64
+#    resize_shape:
+#      agentview_rgb: [ 224, 224]
+#      crop: [ 18, 24, 3 ]
+
+    #    crop_shape: [ 84, 84 ]
+    # constant center crop
+    random_crop: False
+    use_group_norm: True
+    share_rgb_model: False
+    imagenet_norm: True
+
+trainset: ${trainset}
+valset: ${valset}
+
+optimization:
+  _target_: torch.optim.Adam
+  lr: 1e-3
+  weight_decay: 0
+
+train_batch_size: ${train_batch_size}
+val_batch_size: ${val_batch_size}
+num_workers: ${num_workers}
+epoch: ${epoch}
+device: ${device}
+scale_data: ${scale_data}
+eval_every_n_epochs: ${eval_every_n_epochs}
