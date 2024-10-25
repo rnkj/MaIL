@@ -1,9 +1,14 @@
-# MaIL
+# MaIL (This repo is still in process)
 
-[Paper](https://openreview.net/forum?id=6pPYRXKPpw), [Project Page](https://alrhub.github.io/d3il-website/), [ICLR 2024](https://iclr.cc/)
+[Paper](https://openreview.net/forum?id=IssXUYvVTg), [Project Page](https://alrhub.github.io/d3il-website/), [CoRL 2024](https://www.corl.org/home)
 
-[Xiaogang Jia](https://xiaogangjia.github.io/Personal_Website/)<sup>1</sup><sup>2</sup>,
+[Xiaogang Jia*](https://xiaogangjia.github.io/Personal_Website/)<sup>1</sup><sup>2</sup>,
+Qian Wang*<sup>1</sup>
 Atalay Donat<sup>1</sup>,
+Bowen Xing<sup>1</sup>,
+Ge LI<sup>1</sup>,
+Hongyi Zhou<sup>2</sup>,
+Onur Celik<sup>1</sup>,
 [Denis Blessing](https://alr.iar.kit.edu/21_495.php)<sup>1</sup>,
 [Rudolf Lioutikov](https://rudolf.intuitive-robots.net/)<sup>2</sup>,
 [Gerhard Neumann](https://alr.iar.kit.edu/21_65.php)<sup>1</sup>
@@ -11,3 +16,43 @@ Atalay Donat<sup>1</sup>,
 <sup>1</sup>Autonomous Learning Robots, Karlsruhe Institute of Technology
 
 <sup>2</sup>Intuitive Robots Lab, Karlsruhe Institute of Technology
+
+\* indicates equal contribution
+
+## Installation
+```
+# assuming you already have conda installed
+bash install.sh
+```
+
+## Usage
+
+### File System
+```
+MaIL
+└── agents # model implementation
+    └── models
+    ...
+└── configs # task configs and model hyper parameters
+└── environments
+        ...
+    └── dataset # data saving folder and data process
+        └── data
+        ...
+└── scripts # running scripts and hyper parameters
+    └── aligning
+    └── stacking
+    ...
+└── simulation # task simulation
+...
+```
+
+### Reproduce the results
+Train decoder-only mamba on LIBERO-Spatial and LIBERO-Object tasks
+```
+bash scripts/3seed/libero_so_mamba.sh
+```
+
+### Acknowledgements
+
+The code of this repository relies on the following existing codebases:
