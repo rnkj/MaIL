@@ -36,10 +36,22 @@ This project encompasses the MaIL codebase, which includes the implementation of
 for BC and DDPM models.
 
 ## Installation
+To begin, clone this repository locally
 ```
-# assuming you already have conda installed
-bash install.sh
+git clone git@github.com:ALRhub/MaIL.git
 ```
+
+### Installing requirements
+```
+conda create -n mail python=3.8
+conda activate mail
+
+# adapt to your own cuda version if you need
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+pip install -r requirements.txt
+```
+
 ### Installing LIBERO Setup
 ```
 git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git
@@ -75,7 +87,12 @@ MaIL
 ```
 
 ### Reproduce the results
-Train decoder-only mamba on LIBERO-Spatial and LIBERO-Object tasks
+Train decoder-only mamba with `BC` on LIBERO-Spatial and LIBERO-Object tasks using 3 seeds
+```
+bash scripts/3seed/libero_so_mamba.sh
+```
+
+Train encoder-decoder mamba with `DDPM` on LIBERO-Spatial and LIBERO-Object tasks using 3 seeds
 ```
 bash scripts/3seed/libero_so_mamba.sh
 ```
