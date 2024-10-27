@@ -33,8 +33,10 @@ Onur Celik<sup>1</sup>,
 </p>
 
 This project encompasses the MaIL codebase, which includes the implementation of the Decoder-only Mamba and Encoder-Decoder Mamba
-for BC and DDPM models.
-
+for BC and DDPM models. Highlights of MaIL:
+- MaIL achieves better results compared to Transformer-based models on the LIBERO benchmark with 20% data.
+- MaIL can be used as a standalone policy or as a part of advanced methods like diffusion.
+- MaIL has a much more structured latent space compared to Transformer-based models.
 ## Installation
 To begin, clone this repository locally
 ```
