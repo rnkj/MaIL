@@ -32,6 +32,9 @@ Onur Celik<sup>1</sup>,
 
 </p>
 
+This project encompasses the MaIL codebase, which includes the implementation of the Decoder-only Mamba and Encoder-Decoder Mamba
+for BC and DDPM models.
+
 ## Installation
 ```
 # assuming you already have conda installed
