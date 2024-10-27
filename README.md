@@ -19,6 +19,13 @@ Onur Celik<sup>1</sup>,
 
 \* indicates equal contribution
 
+<p align="center">
+
+  <img width="100.0%" src="figures/D_Mamba.png">
+  <img width="100.0%" src="figures/ED_Mamba.png.png">
+
+</p>
+
 ## Installation
 ```
 # assuming you already have conda installed
