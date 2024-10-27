@@ -1,6 +1,6 @@
 # MaIL
 
-[Paper](https://openreview.net/forum?id=IssXUYvVTg), [Project Page](https://xiaogangjia.github.io/mail_website/), [CoRL 2024](https://www.corl.org/home)
+[Paper](https://openreview.net/forum?id=IssXUYvVTg), [Arxiv](https://arxiv.org/abs/2406.08234), [Project Page](https://xiaogangjia.github.io/mail_website/), [CoRL 2024](https://www.corl.org/home)
 
 [Xiaogang Jia*](https://xiaogangjia.github.io/Personal_Website/)<sup>1</sup><sup>2</sup>,
 Qian Wang*<sup>1</sup>
