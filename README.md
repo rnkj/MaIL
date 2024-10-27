@@ -22,7 +22,7 @@ Onur Celik<sup>1</sup>,
 <p align="center">
 
   <img width="100.0%" src="figures/D_Mamba.png">
-  <img width="100.0%" src="figures/ED_Mamba.png.png">
+  <img width="100.0%" src="figures/ED_Mamba.png">
 
 </p>
 
