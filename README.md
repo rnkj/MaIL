@@ -31,6 +31,16 @@ Onur Celik<sup>1</sup>,
 # assuming you already have conda installed
 bash install.sh
 ```
+### Installing LIBERO Setup
+```
+git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git
+cd LIBERO
+pip install -e .
+```
+### Installing Mamba
+```
+pip install mamba-ssm==1.2.0.post1
+```
 
 ## Usage
 
