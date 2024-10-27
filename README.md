@@ -1,6 +1,6 @@
-# MaIL (This repo is still in process)
+# MaIL
 
-[Paper](https://openreview.net/forum?id=IssXUYvVTg), [Project Page](https://alrhub.github.io/d3il-website/), [CoRL 2024](https://www.corl.org/home)
+[Paper](https://openreview.net/forum?id=IssXUYvVTg), [Project Page](https://xiaogangjia.github.io/mail_website/), [CoRL 2024](https://www.corl.org/home)
 
 [Xiaogang Jia*](https://xiaogangjia.github.io/Personal_Website/)<sup>1</sup><sup>2</sup>,
 Qian Wang*<sup>1</sup>
@@ -43,6 +43,7 @@ MaIL
     └── aligning
     └── stacking
     ...
+└── task_embeddings # language embeddings
 └── simulation # task simulation
 ...
 ```
@@ -56,3 +57,20 @@ bash scripts/3seed/libero_so_mamba.sh
 ### Acknowledgements
 
 The code of this repository relies on the following existing codebases:
+- [Mamba] https://github.com/state-spaces/mamba
+- [D3Il] https://github.com/ALRhub/d3il
+- [LIBERO] https://github.com/Lifelong-Robot-Learning/LIBERO
+
+### Citation
+If you found the code usefull, please cite our work:
+
+```
+@inproceedings{
+jia2024mail,
+title={Ma{IL}: Improving Imitation Learning with Selective State Space Models},
+author={Xiaogang Jia and Qian Wang and Atalay Donat and Bowen Xing and Ge Li and Hongyi Zhou and Onur Celik and Denis Blessing and Rudolf Lioutikov and Gerhard Neumann},
+booktitle={8th Annual Conference on Robot Learning},
+year={2024},
+url={https://openreview.net/forum?id=IssXUYvVTg}
+}
+```
