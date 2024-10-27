@@ -27,10 +27,11 @@ Onur Celik<sup>1</sup>,
 
 <p align="center">
 
-  <img width="50.0%" src="figures/mail_rep.jpg">
-  <img width="50.0%" src="figures/transformer_rep.jpg">
+  <img width="49.0%" src="figures/mail_rep.jpg">
+  <img width="49.0%" src="figures/transformer_rep.jpg">
 
 </p>
+
 ## Installation
 ```
 # assuming you already have conda installed
