@@ -96,7 +96,7 @@ bash scripts/bc/libero_so_bc_mamba.sh
 
 Train encoder-decoder mamba with `DDPM` on LIBERO-Spatial and LIBERO-Object tasks using 3 seeds
 ```
-bash scripts/3seed/libero_so_mamba.sh
+bash scripts/3seed/libero_so_mamba_cross.sh
 ```
 
 ### Acknowledgements
