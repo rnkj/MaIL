@@ -49,7 +49,7 @@ conda create -n mail python=3.8
 conda activate mail
 
 # adapt to your own cuda version if you need
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
 pip install -r requirements.txt
 ```
@@ -91,12 +91,12 @@ MaIL
 ### Reproduce the results
 Train decoder-only mamba with `BC` on LIBERO-Spatial and LIBERO-Object tasks using 3 seeds
 ```
-bash scripts/bc/libero_so_bc_mamba.sh
+bash scripts/bc/libero_so_bc_mamba_dec.sh
 ```
 
 Train encoder-decoder mamba with `DDPM` on LIBERO-Spatial and LIBERO-Object tasks using 3 seeds
 ```
-bash scripts/3seed/libero_so_mamba_cross.sh
+bash scripts/3seed/libero_so_mamba_encdec.sh
 ```
 
 ### Acknowledgements
