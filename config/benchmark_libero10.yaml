@@ -1,8 +1,10 @@
 defaults:
-  - agents: oc_ddpm_mamba_only_agent
-  - override hydra/launcher: clusterduck_slurm
+  - agents: oc_ddpm_mamba_dec
+# only for the cluster:
+#  - override hydra/launcher: clusterduck_slurm
+
 # for the agent only with two images in horeka
-agent_name: ddpm_mamba_cross
+agent_name: ddpm_mamba_encdec
 
 task_suite: libero_10
 task_name: multi_task
@@ -46,13 +48,13 @@ observation:
 
 #dataset location
 #dataset_path: /home/temp_store/wang/${task_suite}
-# horeka path:
+# cluster path:
 dataset_path: /hkfs/work/workspace/scratch/ll6323-david_dataset/data/libero/${task_suite}
 
-# insert wandb here
+# insert your own wandb here
 wandb:
-  entity: tiger_or_cat
-  project: 3_seed
+  entity: ???
+  project: ???
 
 group: ${task_suite}_${task_name}_${agent_name}_combination_based_on_current_obs
 
@@ -65,39 +67,40 @@ hydra:
   sweep:
     dir: ${log_dir}/sweeps/${agent_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}
     subdir: ${hydra.job.override_dirname}
-  launcher:
-    timeout_min: 1200
-    name: mamba_cross #${hydra.job.name}
-    partition: accelerated
-    gres: gpu:4
-    #    cpus-per-task: 152
-    #    additional_parameters: { "ntasks": 1, "gres": gpu:4, "cpus-per-task": 152 }
-
-    # clusterduck specific options
-    parallel_runs_per_node: 4
-    total_runs_per_node: null
-    resources_config:
-      cpu:
-      cuda:
-        gpus: [ 0, 1, 2, 3 ]
-      rendering:
-      stagger:
-        delay: 5
+#  only for our cluster
+#  launcher:
+#    timeout_min: 1200
+#    name: mamba_cross #${hydra.job.name}
+#    partition: accelerated
+#    gres: gpu:4
+#    #    cpus-per-task: 152
+#    #    additional_parameters: { "ntasks": 1, "gres": gpu:4, "cpus-per-task": 152 }
+#
+#    # clusterduck specific options
+#    parallel_runs_per_node: 4
+#    total_runs_per_node: null
+#    resources_config:
+#      cpu:
+#      cuda:
+#        gpus: [ 0, 1, 2, 3 ]
+#      rendering:
+#      stagger:
+#        delay: 5
 
 seed: 4
 n_cores: 5
 
 diff_steps: 16
 
-# decoder only
+# transformer decoder only architecture
 trans_n_head: 4
 trans_n_layer: 4
 
-# encoder-decoder
+# transformer encoder-decoder architecture
 encoder_n_layer: 4
 decoder_n_layer: 4
 
-# mamba only
+# mamba decoder only architecture
 n_layers: 6
 
 mamba_ssm_cfg:
@@ -114,7 +117,7 @@ mamba_ssm_cfg:
   bias: False
   use_fast_path: True
 
-# mamba-cross
+# mamba encoder-decoder architecture
 n_layer_decoder: 10
 n_layer_encoder: 10
 

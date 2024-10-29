@@ -1,5 +1,5 @@
 defaults:
-  - agents: goal_mamba_only_agent
+  - agents: goal_ddpm_mamba_encdec
 
 # for the agent only with two images in horeka
 agent_name: goal_mamba_only
@@ -47,7 +47,7 @@ observation:
 #dataset location
 dataset_path: /home/temp_store/wang/${task_suite}
 
-# insert wandb here
+# insert your own wandb here
 wandb:
   entity: tiger_or_cat
   project: 3_seed
@@ -66,15 +66,15 @@ n_cores: 1
 
 diff_steps: 16
 
-# decoder only
+# transformer decoder only architecture
 trans_n_head: 4
 trans_n_layer: 8
 
-# encoder-decoder
+# transformer encoder-decoder architecture
 encoder_n_layer: 4
 decoder_n_layer: 6
 
-# mamba only
+# mamba decoder only architecture
 n_layers: 6
 
 mamba_ssm_cfg:
@@ -91,7 +91,7 @@ mamba_ssm_cfg:
   bias: False
   use_fast_path: True
 
-# mamba-cross
+# mamba encoder-decoder architecture
 n_layer_decoder: 10
 n_layer_encoder: 10
 
@@ -131,7 +131,7 @@ train_batch_size: 256
 val_batch_size: 256
 num_workers: 2
 device: 'cuda'
-epoch: 60
+epoch: 1
 eval_every_n_epochs: 50
 scale_data: True
 

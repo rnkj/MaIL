@@ -30,7 +30,7 @@ def set_seed_everywhere(seed):
     random.seed(seed)
 
 
-@hydra.main(config_path="config", config_name="local_train_goal.yaml")
+@hydra.main(config_path="config", config_name="local_train.yaml")
 def main(cfg: DictConfig) -> None:
 
     set_seed_everywhere(cfg.seed)
@@ -49,18 +49,12 @@ def main(cfg: DictConfig) -> None:
     agent = hydra.utils.instantiate(cfg.agents)
 
     agent.train_vision_agent()
-    # agent.load_pretrained_model("/home/david/Student/Wangqian/OCIL/OCIL/logs/libero_spatial/multi_task/sweeps/bc_mamba/2024-05-24/18-08-25",
-    #                             sv_name="last_bc.pth")
-    # job_num = hydra.core.hydra_config.HydraConfig.get().job.num
 
     num_cpu = mp.cpu_count()
     cpu_set = list(range(num_cpu))
 
-    # current_num = int(job_num % 4)
-
-    # assign_cpus = cpu_set[current_num * cfg.n_cores:current_num * cfg.n_cores + cfg.n_cores]
-
     assign_cpus = cpu_set[cfg.seed * cfg.n_cores:cfg.seed * cfg.n_cores + cfg.n_cores]
+
     env_sim = hydra.utils.instantiate(cfg.simulation)
     env_sim.test_agent(agent, assign_cpus, agent.action_seq_size)
 

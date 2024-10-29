@@ -1,5 +1,5 @@
 defaults:
-  - agents: oc_ddpm_mamba_cross
+  - agents: oc_ddpm_mamba_encdec
 # for the agent only with two images in horeka
 agent_name: ddpm_mamba_cross
 
@@ -46,10 +46,10 @@ observation:
 #dataset location
 dataset_path: /home/temp_store/wang/${task_suite}
 
-# insert wandb here
+# insert your own wandb here
 wandb:
-  entity: tiger_or_cat
-  project: 3_seed
+  entity: ???
+  project: ???
 
 group: ${task_suite}_${task_name}_${agent_name}_combination_based_on_current_obs
 
@@ -65,15 +65,15 @@ n_cores: 1
 
 diff_steps: 16
 
-# decoder only
+# transformer decoder only architecture
 trans_n_head: 4
 trans_n_layer: 4
 
-# encoder-decoder
+# transformer encoder-decoder architecture
 encoder_n_layer: 4
 decoder_n_layer: 4
 
-# mamba only
+# mamba decoder only architecture
 n_layers: 16
 
 mamba_ssm_cfg:
@@ -90,7 +90,7 @@ mamba_ssm_cfg:
   bias: False
   use_fast_path: True
 
-# mamba-cross
+# mamba encoder-decoder architecture
 n_layer_encoder: 8
 n_layer_decoder: 10
 
