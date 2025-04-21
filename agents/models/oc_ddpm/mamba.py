@@ -43,6 +43,7 @@ def create_block(
     block = Block(
         d_model,
         mixer_cls,
+        nn.Identity,
         norm_cls=norm_cls,
         fused_add_norm=fused_add_norm,
         residual_in_fp32=residual_in_fp32,
